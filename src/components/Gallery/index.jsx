@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import StyledTitle from "../Title"
 import Tags from "./Tags"
-import Popular from "../Popular"
+import Popular from "./Popular"
 
 const StyledGallery = styled.div`
     display: flex;

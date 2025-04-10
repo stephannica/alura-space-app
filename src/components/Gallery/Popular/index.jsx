@@ -1,4 +1,5 @@
-import StyledTitle from "../Title"
+import StyledTitle from "../../Title"
+
 
 const Popular = () => {
     return(
