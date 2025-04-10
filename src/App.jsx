@@ -4,6 +4,8 @@ import Header from "./components/Header"
 import SideBar from "./components/Side-bar"
 import Banner from "./components/Banner"
 import Gallery from "./components/Gallery"
+import photos from "./photos.json"
+import { useState } from "react"
 
 const BackgroundGradient = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -27,6 +29,8 @@ const GalleryContainer = styled.section`
 `
 
 function App() {
+  const [photosForGallery, setPhotosForGallery] = useState(photos)
+
   return (
     <BackgroundGradient>
       <GlobalStyles />
@@ -37,9 +41,9 @@ function App() {
           <GalleryContainer>
             <Banner
               backgroundImage={"/img/banner.png"}
-              text={"A galeria mais completa de fotos do espaço"}
+              text={"A galeria mais completa de fotos do espaço!"}
             />
-            <Gallery/>
+            <Gallery photos={photosForGallery}/>
           </GalleryContainer>
         </MainContainer>
       </AppContainer>
