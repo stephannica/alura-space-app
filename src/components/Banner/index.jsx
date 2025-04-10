@@ -1,33 +1,32 @@
 import styled from "styled-components";
-import banner from "/img/banner.png"
 
 const StyledDiv = styled.div`
-    width: 1156px;
-    max-width: 100%;
-    min-height: 328px;
-    background-image: url(${banner});
+    background-image: ${props => `url(${props.$backgroundImage})`};
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 20px;
-    flex-grow: 1;
+    max-width: 100%;
+    min-height: 328px;
     display: flex;
+    flex-grow: 1;
     align-items: center;
     margin: 0;
+    border-radius: 20px;
 `
 
 const StyledText = styled.h1`
-    width: 301px;
-    height: 144px;
+    font-weight: 400;
     font-size: 40px;
+    max-width: 300px;
+    line-height: 48px;
     color: #FFFFFF;
-    margin: 92px;
+    padding: 0 64px;
 `
 
 
-function Banner(){
+const Banner = ({backgroundImage, text}) => {
     return (
-        <StyledDiv>
-            <StyledText>A galeria mais completa de fotos do espaço!</StyledText>
+        <StyledDiv $backgroundImage={backgroundImage}>
+            <StyledText>{text}</StyledText>
         </StyledDiv>
     )
 }
