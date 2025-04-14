@@ -4,9 +4,9 @@ import tags from './tags.json'
 
 const TagContainer = styled.section`
     display: flex;
-    align-items: center;
-    gap: 20px;
     margin-top: 48px;
+    align-items: center;
+    gap: 12px;
 `
 
 const StyledTitleTag = styled.h3`
@@ -14,13 +14,6 @@ const StyledTitleTag = styled.h3`
     font-size: 24px;
     margin: 0;
     font-weight: 400;
-`
-
-const ButtonContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 24px;
 `
 
 const StyledButton = styled.button`
@@ -42,9 +35,7 @@ const Tags = () => {
     return (
             <TagContainer>
                 <StyledTitleTag>Busque por tags: </StyledTitleTag>
-                <ButtonContainer>
-                    {tags.map(tag => <StyledButton key={tag.id}>{tag.titulo}</StyledButton>)}
-                </ButtonContainer>
+                {tags.map(tag => <StyledButton key={tag.id}>{tag.titulo}</StyledButton>)}
             </TagContainer>
     )
 }
