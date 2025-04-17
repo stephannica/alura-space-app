@@ -6,6 +6,7 @@ import Figure from "./Figure"
 
 const StyledGallery = styled.div`
     display: flex;
+    gap: 24px;
 `
 
 const FluidSection = styled.section`
@@ -19,7 +20,7 @@ const FigureSection = styled.section`
     gap: 24px;
 `
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], handlePhotoSelect }) => {
     return (
         <>
             <Tags />
@@ -28,6 +29,7 @@ const Gallery = ({ photos = [] }) => {
                     <StyledTitle>Navegue pela galeria</StyledTitle>
                     <FigureSection>
                         {photos.map(photos => <Figure
+                            handleZoomOrder={handlePhotoSelect}
                             key={photos.id}
                             photos={photos}
                         /> )}
