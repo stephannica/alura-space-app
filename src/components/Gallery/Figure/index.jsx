@@ -2,7 +2,7 @@ import styled from "styled-components"
 import ButtonIcon from "../../Button-icon"
 
 const FigureContainer = styled.figure`
-    width: ${props => props.$expandida ? '90%' : '460px'};
+    width: ${props => props.$expanded ? '90%' : '460px'};
     max-width: 100%;
     margin: 0;
     display: flex;
@@ -18,7 +18,7 @@ const FigureContainer = styled.figure`
         box-sizing: border-box;
         padding: 12px;
         h3 {
-            font-family: 'GandhiSansBold';
+            font-family: 'GanhdiSansBold';
         }
         h4 {
             flex-grow: 1;
@@ -35,7 +35,7 @@ const StyledFooter = styled.footer`
     align-items: center;
 `
 
-const Figure = ({ photos, expanded = false }) => {
+const Figure = ({ photos, expanded = false, handleZoomOrder }) => {
     return (
         <FigureContainer id={`foto-${photos.id}`} $expanded={expanded}>
             <img src={photos.path} alt={photos.titulo} />
@@ -46,7 +46,7 @@ const Figure = ({ photos, expanded = false }) => {
                     <ButtonIcon>
                         <img src="/icons/favorite.png" alt="Favoritar" />
                     </ButtonIcon>
-                    {!expanded && <ButtonIcon aria-hidden={expanded}>
+                    {!expanded && <ButtonIcon aria-hidden={expanded} onClick={() => handleZoomOrder(photos)}>
                         <img src="/icons/expand.png" alt="Expandir" />
                     </ButtonIcon>}
                 </StyledFooter>
