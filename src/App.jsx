@@ -51,7 +51,7 @@ function App() {
           </GalleryContainer>
         </MainContainer>
       </AppContainer>
-      <ZoomModal photos={selectedPhoto}/>
+      <ZoomModal photos={selectedPhoto} whenClosing={() => setSelectedPhoto(null)}/>
     </BackgroundGradient>
   )
 }
