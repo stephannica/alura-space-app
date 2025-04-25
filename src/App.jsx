@@ -7,6 +7,7 @@ import Gallery from "./components/Gallery"
 import photos from "./photos.json"
 import { useState } from "react"
 import ZoomModal from "./components/Modal-zoom"
+import Footer from "./components/Footer"
 
 const BackgroundGradient = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -34,7 +35,7 @@ function App() {
   const [selectedPhoto, setSelectedPhoto] = useState(null)
 
   const toggleFavorite = (photo) => {
-    if (photo.id === selectedPhoto?.id){
+    if (photo.id === selectedPhoto?.id) {
       setSelectedPhoto({
         ...selectedPhoto,
         favorite: !selectedPhoto.favorite
@@ -67,11 +68,12 @@ function App() {
           </GalleryContainer>
         </MainContainer>
       </AppContainer>
-      <ZoomModal 
-      photos={selectedPhoto} 
-      whenClosing={() => setSelectedPhoto(null)}
-      toggleFavorite={toggleFavorite}
-      />
+      <ZoomModal
+        photos={selectedPhoto}
+        whenClosing={() => setSelectedPhoto(null)}
+        toggleFavorite={toggleFavorite}
+        />
+      <Footer/>
     </BackgroundGradient>
   )
 }
