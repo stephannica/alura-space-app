@@ -33,6 +33,21 @@ function App() {
   const [photosForGallery, setPhotosForGallery] = useState(photos)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
 
+  const toggleFavorite = (photo) => {
+    if (photo.id === selectedPhoto?.id){
+      setSelectedPhoto({
+        ...selectedPhoto,
+        favorite: !selectedPhoto.favorite
+      })
+    }
+    setPhotosForGallery(photosForGallery.map(photosForGallery => {
+      return {
+        ...photosForGallery,
+        favorite: photosForGallery.id === photo.id ? !photo.favorite : photosForGallery.favorite
+      }
+    }))
+  }
+
   return (
     <BackgroundGradient>
       <GlobalStyles />
@@ -45,13 +60,18 @@ function App() {
               backgroundImage={"/img/banner.png"}
               text={"A galeria mais completa de fotos do espaço!"}
             />
-            <Gallery 
-            handlePhotoSelect={photos => setSelectedPhoto(photos)}
-            photos={photosForGallery}/>
+            <Gallery
+              toggleFavorite={toggleFavorite}
+              handlePhotoSelect={photos => setSelectedPhoto(photos)}
+              photos={photosForGallery} />
           </GalleryContainer>
         </MainContainer>
       </AppContainer>
-      <ZoomModal photos={selectedPhoto} whenClosing={() => setSelectedPhoto(null)}/>
+      <ZoomModal 
+      photos={selectedPhoto} 
+      whenClosing={() => setSelectedPhoto(null)}
+      toggleFavorite={toggleFavorite}
+      />
     </BackgroundGradient>
   )
 }

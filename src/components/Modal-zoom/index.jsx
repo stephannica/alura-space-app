@@ -31,13 +31,13 @@ const StyledDialog = styled.dialog`
 `
 
 
-const ZoomModal = ({ photos, whenClosing }) => {
+const ZoomModal = ({ photos, whenClosing, toggleFavorite }) => {
     return (
         <>
             {photos && <>
                 <Overlay />
                 <StyledDialog open={!!photos} onClose={whenClosing}>
-                    <Figure photos={photos} expanded={true} />
+                    <Figure photos={photos} expanded={true} toggleFavorite={toggleFavorite}/>
                     <form method="dialog">
                         <ButtonIcon formMethod="dialog">
                             <img src="/icons/close.png" alt="Fechar" />

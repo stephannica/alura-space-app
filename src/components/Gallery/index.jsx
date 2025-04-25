@@ -20,7 +20,7 @@ const FigureSection = styled.section`
     gap: 24px;
 `
 
-const Gallery = ({ photos = [], handlePhotoSelect }) => {
+const Gallery = ({ photos = [], handlePhotoSelect, toggleFavorite }) => {
     return (
         <>
             <Tags />
@@ -29,6 +29,7 @@ const Gallery = ({ photos = [], handlePhotoSelect }) => {
                     <StyledTitle>Navegue pela galeria</StyledTitle>
                     <FigureSection>
                         {photos.map(photos => <Figure
+                            toggleFavorite={toggleFavorite}
                             handleZoomOrder={handlePhotoSelect}
                             key={photos.id}
                             photos={photos}

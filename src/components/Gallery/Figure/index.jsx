@@ -35,7 +35,8 @@ const StyledFooter = styled.footer`
     align-items: center;
 `
 
-const Figure = ({ photos, expanded = false, handleZoomOrder }) => {
+const Figure = ({ photos, expanded = false, handleZoomOrder, toggleFavorite }) => {
+    const favoriteIcon = photos.favorite ? '/icons/favorite-active.png' : '/icons/favorite.png'
     return (
         <FigureContainer id={`foto-${photos.id}`} $expanded={expanded}>
             <img src={photos.path} alt={photos.titulo} />
@@ -44,7 +45,7 @@ const Figure = ({ photos, expanded = false, handleZoomOrder }) => {
                 <StyledFooter>
                     <h4>{photos.fonte}</h4>
                     <ButtonIcon>
-                        <img src="/icons/favorite.png" alt="Favoritar" />
+                        <img src={favoriteIcon} alt="Favoritar" onClick={() => toggleFavorite(photos)} />
                     </ButtonIcon>
                     {!expanded && <ButtonIcon aria-hidden={expanded} onClick={() => handleZoomOrder(photos)}>
                         <img src="/icons/expand.png" alt="Expandir" />
