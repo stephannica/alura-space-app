@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import Banner from "./components/Banner"
+import Footer from "./components/Footer"
+import Gallery from "./components/Gallery"
 import GlobalStyles from "./components/GlobalStyles"
 import Header from "./components/Header"
 import SideBar from "./components/SideBar"
-import Banner from "./components/Banner"
-import Gallery from "./components/Gallery"
+import ZoomModal from "./components/ZoomModal"
 import photos from "./photos.json"
 import { useEffect, useState } from "react"
-import ZoomModal from "./components/ZoomModal"
-import Footer from "./components/Footer"
+import styled from "styled-components"
 
 const BackgroundGradient = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
