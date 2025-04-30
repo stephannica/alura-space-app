@@ -5,7 +5,7 @@ import SideBar from "./components/Side-bar"
 import Banner from "./components/Banner"
 import Gallery from "./components/Gallery"
 import photos from "./photos.json"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ZoomModal from "./components/Modal-zoom"
 import Footer from "./components/Footer"
 
@@ -33,6 +33,17 @@ const GalleryContainer = styled.section`
 function App() {
   const [photosForGallery, setPhotosForGallery] = useState(photos)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [filter, setFilter] = useState('')
+  const [tag, setTag] = useState(0)
+
+  useEffect(() => {
+    const filterPhotos = photos.filter(photo => {
+      const filterByTag = !tag || photo.tagId === tag;
+      const filterByTitle = !filter || photo.titulo.toLowerCase().includes(filter.toLowerCase())
+      return filterByTag && filterByTitle
+    })
+    setPhotosForGallery(filterPhotos)
+  }, [filter, tag])	
 
   const toggleFavorite = (photo) => {
     if (photo.id === selectedPhoto?.id) {
@@ -53,7 +64,10 @@ function App() {
     <BackgroundGradient>
       <GlobalStyles />
       <AppContainer>
-        <Header />
+        <Header 
+          filter={filter}
+          setFilter={setFilter}
+        />
         <MainContainer>
           <SideBar />
           <GalleryContainer>
@@ -62,6 +76,7 @@ function App() {
               text={"A galeria mais completa de fotos do espaço!"}
             />
             <Gallery
+              setTag={setTag}
               toggleFavorite={toggleFavorite}
               handlePhotoSelect={photos => setSelectedPhoto(photos)}
               photos={photosForGallery} />

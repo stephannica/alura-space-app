@@ -10,11 +10,11 @@ const StyledHeader = styled.header`
     }
 `
 
-function Header() {
+function Header({ filter, setFilter }) {
     return (
         <StyledHeader>
             <img src="/img/logo.png" alt="SpaceAppLogo" />
-            <InputText/>
+            <InputText filter={filter} setFilter={setFilter}/>
         </StyledHeader>
     )
 }

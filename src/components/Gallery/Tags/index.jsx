@@ -16,6 +16,12 @@ const StyledTitleTag = styled.h3`
     font-weight: 400;
 `
 
+const StyledDiv = styled.div`
+    display: flex;
+    gap: 24px;
+    justify-content: end;
+`
+
 const StyledButton = styled.button`
     font-size: 24px;
     color: #FFFFFF;
@@ -31,11 +37,13 @@ const StyledButton = styled.button`
     }
 `
 
-const Tags = () => { 
+const Tags = ({ setTag }) => { 
     return (
             <TagContainer>
                 <StyledTitleTag>Busque por tags: </StyledTitleTag>
-                {tags.map(tag => <StyledButton key={tag.id}>{tag.titulo}</StyledButton>)}
+                <StyledDiv>
+                    {tags.map(tag => <StyledButton key={tag.id} onClick={() => setTag(tag.tag)}>{tag.titulo}</StyledButton>)}
+                </StyledDiv>
             </TagContainer>
     )
 }

@@ -20,10 +20,10 @@ const FigureSection = styled.section`
     gap: 24px;
 `
 
-const Gallery = ({ photos = [], handlePhotoSelect, toggleFavorite }) => {
+const Gallery = ({ photos = [], setTag, handlePhotoSelect, toggleFavorite }) => {
     return (
         <>
-            <Tags />
+            <Tags setTag={setTag}/>
             <StyledGallery>
                 <FluidSection>
                     <StyledTitle>Navegue pela galeria</StyledTitle>

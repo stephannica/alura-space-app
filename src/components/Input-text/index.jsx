@@ -31,13 +31,13 @@ const InputIcon = styled.img`
     right: 0.85rem;
 `
 
-function InputText() {
+function InputText({ setFilter }) {
     return (
         <>
-        <StyledDiv>
-            <StyledInput type="text" placeholder="O que você procura?" />
-            <InputIcon src={searchIcon} alt="search icon" />
-        </StyledDiv>
+            <StyledDiv>
+                <StyledInput onChange={(event) => { setFilter(event.target.value) }} type="text" placeholder="O que você procura?" />
+                <InputIcon src={searchIcon} alt="search icon" />
+            </StyledDiv>
         </>
     )
 }
