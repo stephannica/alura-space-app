@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import GlobalStyles from "./components/GlobalStyles"
-import Header from "./components/Header"
+import Header from "./components/Header/index.jsx"
 import SideBar from "./components/SideBar"
 import Banner from "./components/Banner"
 import Gallery from "./components/Gallery"
