@@ -1,12 +1,12 @@
 import styled from "styled-components"
-import GlobalStyles from "./components/Global-styles"
+import GlobalStyles from "./components/GlobalStyles"
 import Header from "./components/Header"
-import SideBar from "./components/Side-bar"
+import SideBar from "./components/SideBar"
 import Banner from "./components/Banner"
 import Gallery from "./components/Gallery"
 import photos from "./photos.json"
 import { useEffect, useState } from "react"
-import ZoomModal from "./components/Modal-zoom"
+import ZoomModal from "./components/ZoomModal"
 import Footer from "./components/Footer"
 
 const BackgroundGradient = styled.div`

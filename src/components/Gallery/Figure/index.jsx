@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import ButtonIcon from "../../Button-icon"
+import ButtonIcon from "../../ButtonIcon"
 
 const FigureContainer = styled.figure`
     width: ${props => props.$expanded ? '90%' : '460px'};

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import InputText from "../Input-text";
+import InputText from "../InputText";
 
 const StyledHeader = styled.header`
     padding: 60px 0;

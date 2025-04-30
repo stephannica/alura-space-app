@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Figure from "../Gallery/Figure"
-import ButtonIcon from "../Button-icon"
+import ButtonIcon from "../ButtonIcon"
 
 const Overlay = styled.div`
     position: fixed;
@@ -37,7 +37,7 @@ const ZoomModal = ({ photos, whenClosing, toggleFavorite }) => {
             {photos && <>
                 <Overlay />
                 <StyledDialog open={!!photos} onClose={whenClosing}>
-                    <Figure photos={photos} expanded={true} toggleFavorite={toggleFavorite}/>
+                    <Figure photos={photos} expanded={true} toggleFavorite={toggleFavorite} />
                     <form method="dialog">
                         <ButtonIcon formMethod="dialog">
                             <img src="/icons/close.png" alt="Fechar" />
